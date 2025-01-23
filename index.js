@@ -1,11 +1,66 @@
 
 // ============================ PART ONE: Thinking Functionally ================================
 // Take an array of numbers and return the sum.
+function sum(array) {
+    let accumulator = 0
+    for (let i = 0; i < array.length; i++){
+        accumulator += array[i];
+    }
+
+    return accumulator;
+}
+
+const nums = [1, 3, 4, 5, 6]
+console.log(sum(nums));
+
 // Take an array of numbers and return the average.
+function avg(array){
+    return sum(array) / array.length;
+}
+
+console.log(avg(nums));
+
 // Take an array of strings and return the longest string.
+function longestStr(array) {
+    let longStrLength = 0;  //all strings will be at least 0 characters long
+    let longStr = '';
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].length > longStrLength) {
+            longStrLength = array[i].length;
+            longStr = array[i]
+        }
+    }
+
+    return longStr
+}
+
+const strArr = ['say', 'hello', 'in', 'the', 'morning'];
+
+console.log(longestStr(strArr));
+
 // Take an array of strings, and a number and return an array of the strings that are longer than the given number. 
 // For example, stringsLongerThan(['say', 'hello', 'in', 'the', 'morning'], 3); would return ["hello", "morning"].
+function stringsLongerThan(array, num) {
+    const longStrs = [];
+    for(let i = 0; i < array.length; i++) {
+        if(array[i].length > num) {
+            longStrs.push(array[i]);
+        }
+    }
+    return longStrs;
+}
+
+console.log(stringsLongerThan(['say', 'hello', 'in', 'the', 'morning'], 3));
+
 // Take a number, n, and print every number between 1 and n using loops.
+//assuming that n is inclusive
+function numsAfter1(n) {
+    for (let i = 1; i <= n; i++) {
+        console.log(i)
+    }
+}
+
+numsAfter1(10);
 
 // ============================ PART TWO: Thinking Methodically ================================
 // When functions are built into objects, like Arrays, they are referred to as “methods” of those objects. Many methods, including Array methods, require “callback functions” to determine their behavior.
