@@ -71,11 +71,45 @@ numsAfter1(10);
 //  { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
 //  { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
 // Use callback functions alongside Array methods to accomplish the following:
+const data = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" },
+    { id: "48", name: "Barry", occupation: "Runner", age: "25" },
+    { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },
+    { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
+    { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
+
 // Sort the array by age.
+data.sort((a, b) => a.age - b.age)
+console.log(data);
+
 // Filter the array to remove entries with an age greater than 50.
+const filteredData = data.filter((person) => person.age < 50)
+console.log(filteredData);
+
 // Map the array to change the “occupation” key to “job” and increment every age by 1.
+const mappedData = data.map((person) => {
+    const newPerson =  {
+        ...person,
+        job: person.occupation,
+        age: String(parseInt(person.age) + 1)
+    }
+    
+    delete newPerson.occupation;
+
+    return newPerson;
+})
+
+console.log(mappedData);
+
 // Use the reduce method to calculate the sum of the ages.
+const result = data.reduce((acc, person) => {
+    return acc += parseInt(person.age)
+}, 0)
+console.log(result)
+
 // Then use the result to calculate the average age.
+avgAge = result/data.length;
+
+console.log(avgAge)
 
 // ============================ PART THREE: Thinking Critically ================================
 // It is important to remember that when working with objects in JavaScript, we can either pass those objects into functions by value or by reference. This important distinction changes the way that functions behave, and can have large impacts on the way a program executes.
