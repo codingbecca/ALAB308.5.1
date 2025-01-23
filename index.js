@@ -115,9 +115,44 @@ console.log(avgAge)
 // It is important to remember that when working with objects in JavaScript, we can either pass those objects into functions by value or by reference. This important distinction changes the way that functions behave, and can have large impacts on the way a program executes.
 // For this section, develop functions that accomplish the following:
 // Take an object and increment its age field.
+const person = {
+    name: {
+        first: 'Timmy',
+        last: 'Timtim'
+    },
+    age: 30,
+    location: {
+        city: 'New York',
+        state: 'New York',
+        zip: 10001
+    }
+}
+
+function incrementAge(obj) {
+    if(obj.age){
+        obj.age = parseInt(obj.age) + 1;
+    } else {
+        obj.age = 0;
+    }
+    obj.updated_at = new Date();
+
+    return obj;
+}
+
+console.log(incrementAge(person));
+
 // Take an object, make a copy, and increment the age field of the copy. Return the copy.
+function incrementAgeOfCopy(obj){
+    const objStr = JSON.stringify(obj);
+    const objCopy = JSON.parse(objStr);
+    return incrementAge(objCopy);
+}
+
+console.log(incrementAgeOfCopy(person));
+
 // For each of the functions above, if the object does not yet contain an age field, create one and set it to 0. Also, add (or modify, as appropriate) an updated_at field that stores a Date object with the current time.
 // Thought experiment: since the Date object is an object, what would happen if we modified it in the copy of the object created in the second function using setTime() or another method? How could we circumvent potentially undesired behavior?
+//modifying the date object in the copy of the object using setTime() or another method will not alter the date object in the original because I decided to create a deep copy in my function. If I had created a shallow copy it would have altered the date in both objects (the copy and the original) -- the way around this is to create a deep copy
 
 // ============================ PART FOUR: Thinking Practically ================================
 // Practical application of these concepts varies greatly in industry, but the core foundations are the same: functions handle repeated, specialized tasks, and methods are functions attached to specific types of objects.
