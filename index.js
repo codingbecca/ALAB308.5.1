@@ -161,6 +161,15 @@ console.log(incrementAgeOfCopy(person));
 // ============================ PART FIVE: Thinking Back ================================
 // Once you have completed the tasks outlined above, take any extra time you may have to revisit your previous JavaScript assignments. 
 // How many of the scripts could be turned into functions?
+// Almost all of the scripts could be turned into functions. I used functions in ALAB 308.2.1 but not in the others.
+
 // What would the parameters look like? What kind of returns should they have?
+//Part two of ALAB 308.1.1 stands out as a place to implement functions. The parameters would be the trip descriptions while the returns would be things like the amount of fuel needed and if the trip would be in budget or not. 
+//ALAB 308.3.1 doesn't seems as strong of a place to implement functions. One could implement functions to make the code more reusable but the code is being used once and there doesn't seem to be a practical reason why we would reuse the code. Except maybe the code that parses the csv into arrays. That could be packaged as a function that takes in a string of data and parses it into an array
+//ALAB 308.4.1 is another one that sands out as a place to implement functions. The parameters would be the data and they would return the processed data
+
 // Could you package your code into even smaller blocks, creating helper functions?
+// Probably
+
 // What else could be changed to optimize the code, knowing what you now know?
+// other than functions, I'm sure there are some methods that could be used to optimize the code
