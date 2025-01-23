@@ -78,11 +78,11 @@ const data = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" },
     { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
 
 // Sort the array by age.
-data.sort((a, b) => a.age - b.age)
+data.sort((a, b) => parseInt(a.age) - parseInt(b.age))
 console.log(data);
 
 // Filter the array to remove entries with an age greater than 50.
-const filteredData = data.filter((person) => person.age < 50)
+const filteredData = data.filter((person) => parseInt(person.age) < 50)
 console.log(filteredData);
 
 // Map the array to change the “occupation” key to “job” and increment every age by 1.
